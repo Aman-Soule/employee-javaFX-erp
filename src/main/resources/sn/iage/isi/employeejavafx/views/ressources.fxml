@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="560.0" prefWidth="880.0" styleClass="dashboard-root" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sn.iage.isi.employeejavafx.controllers.RessourcesController">
+
+    <!-- ── En-tête ──────────────────────────────────────────────────────── -->
+    <top>
+        <VBox styleClass="dashboard-header">
+            <padding><Insets bottom="15" left="25" right="25" top="15" /></padding>
+            <Label fx:id="pageTitle" styleClass="page-title" text="Ressources" />
+            <Label styleClass="hub-subtitle" text="Accédez rapidement aux différentes sections de l'application." />
+        </VBox>
+    </top>
+
+    <!-- ── Grille de cartes ─────────────────────────────────────────────── -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="hub-scroll" BorderPane.alignment="CENTER">
+            <padding><Insets bottom="30" left="40" right="40" top="30" /></padding>
+
+            <VBox spacing="20">
+
+                <!-- ── Ligne 1 ─────────────────────────────────────────── -->
+                <HBox spacing="20">
+                    <!-- Carte : Gestion des utilisateurs -->
+                    <VBox fx:id="cardUsers" onMouseClicked="#goToUsers" styleClass="nav-card, nav-card-orange" HBox.hgrow="ALWAYS">
+                        <Label styleClass="nav-card-icon" text="🔐" />
+                        <Label styleClass="nav-card-title" text="Utilisateurs" />
+                        <Label styleClass="nav-card-desc" text="Créer et gérer les comptes d'accès à l'application." wrapText="true" />
+                        <Region VBox.vgrow="ALWAYS" />
+                        <Label styleClass="nav-card-link" text="Ouvrir →" />
+                    </VBox>
+
+
+
+                    <!-- Carte : Ajouter un employé -->
+                    <VBox fx:id="cardAddEmployee" onMouseClicked="#goToAddEmployee" styleClass="nav-card, nav-card-green" HBox.hgrow="ALWAYS">
+                        <Label styleClass="nav-card-icon" text="➕" />
+                        <Label styleClass="nav-card-title" text="Ajouter un employé" />
+                        <Label styleClass="nav-card-desc" text="Enregistrer un nouvel employé dans le système." wrapText="true" />
+                        <Region VBox.vgrow="ALWAYS" />
+                        <Label styleClass="nav-card-link" text="Ouvrir →" />
+                    </VBox>
+
+                </HBox>
+
+                <!-- ── Ligne 2 ─────────────────────────────────────────── -->
+                <HBox spacing="20">
+
+                    <!-- Carte : Liste des employés -->
+                    <VBox fx:id="cardEmployees" styleClass="nav-card, nav-card-blue" HBox.hgrow="ALWAYS">
+                        <Label styleClass="nav-card-icon" text="👥" />
+                        <Label styleClass="nav-card-title" text="Employés" />
+                        <Label fx:id="cptEmployee" styleClass="nav-card-desc" text="0 employé(s) dans l'entreprise" wrapText="true" />
+                        <Region VBox.vgrow="ALWAYS" />
+                        <Label fx:id="prctSalaire" prefHeight="17.0" prefWidth="163.0" styleClass="nav-card-link" text="0% de super salariés " />
+                    </VBox>
+
+                    <!-- Carte : Mon profil -->
+                    <VBox fx:id="cardMasse" styleClass="nav-card, nav-card-purple" HBox.hgrow="ALWAYS">
+                        <Label styleClass="nav-card-icon" text="👤" />
+                        <Label fx:id="masseSalaire" styleClass="nav-card-title" text="Masse salariale : 0.0 FCFA" />
+                        <Label styleClass="nav-card-desc" text="Charges des salaires supportées par l'entreprise" wrapText="true" />
+                        <Region VBox.vgrow="ALWAYS" />
+                        <Label styleClass="nav-card-link" />
+                    </VBox>
+
+                </HBox>
+
+                <!-- ── Ligne 3 ─────────────────────────────────────────── -->
+                <HBox spacing="20">
+
+                    <!-- Carte : Matériel -->
+                    <VBox fx:id="cardMateriel" styleClass="nav-card, nav-card-green" HBox.hgrow="ALWAYS">
+                        <Label styleClass="nav-card-icon" text="📦" />
+                        <Label styleClass="nav-card-title" text="Matériel" />
+                        <Label fx:id="cptMateriel" styleClass="nav-card-desc" text="0 matériel(s) enregistré(s)" wrapText="true" />
+                        <Region VBox.vgrow="ALWAYS" />
+                        <Label fx:id="sommeMateriel" styleClass="nav-card-link" text="Valeur totale : 0 FCFA" />
+                    </VBox>
+
+                </HBox>
+
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

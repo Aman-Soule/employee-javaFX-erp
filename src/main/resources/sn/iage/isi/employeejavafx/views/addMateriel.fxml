@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="sn.iage.isi.employeejavafx.controllers.AddMaterielController"
+        prefHeight="480.0"
+        prefWidth="460.0">
+
+    <VBox spacing="14"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding><Insets top="25" bottom="25" left="35" right="35"/></padding>
+
+        <Label text="Ajouter un matériel" styleClass="modal-title"/>
+
+        <!-- Nom -->
+        <VBox spacing="4">
+            <Label text="Nom *" styleClass="form-label"/>
+            <TextField fx:id="nomField" promptText="Nom du matériel" styleClass="form-field"/>
+        </VBox>
+
+        <!-- Description -->
+        <VBox spacing="4">
+            <Label text="Description *" styleClass="form-label"/>
+            <TextField fx:id="descriptionField" promptText="Brève description" styleClass="form-field"/>
+        </VBox>
+
+        <!-- Quantité et Valeur sur la même ligne -->
+        <HBox spacing="12">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Quantité *" styleClass="form-label"/>
+                <TextField fx:id="quantiteField" promptText="10" styleClass="form-field"/>
+            </VBox>
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Valeur (FCFA) *" styleClass="form-label"/>
+                <TextField fx:id="valeurField" promptText="50000" styleClass="form-field"/>
+            </VBox>
+        </HBox>
+
+        <!-- Localisation -->
+        <VBox spacing="4">
+            <Label text="Localisation *" styleClass="form-label"/>
+            <TextField fx:id="localisationField" promptText="Entrepôt A, Bureau 3..." styleClass="form-field"/>
+        </VBox>
+
+        <!-- État -->
+        <VBox spacing="4">
+            <Label text="État *" styleClass="form-label"/>
+            <ChoiceBox fx:id="etatChoiceBox" styleClass="form-field">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Disponible"/>
+                        <String fx:value="Indisponible"/>
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+        </VBox>
+
+        <!-- Catégorie -->
+        <VBox spacing="4">
+            <Label text="Catégorie *" styleClass="form-label"/>
+            <ChoiceBox fx:id="categorieChoiceBox" styleClass="form-field"/>
+        </VBox>
+
+        <!-- Message d'erreur -->
+        <Label
+                fx:id="formErrorLabel"
+                text=""
+                styleClass="error-label"
+                wrapText="true"/>
+
+        <!-- Boutons -->
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="cancelButton" text="Annuler" onAction="#handleCancel" styleClass="btn-secondary"/>
+            <Button fx:id="saveButton"   text="Enregistrer" onAction="#handleSave" styleClass="btn-primary"/>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="sn.iage.isi.employeejavafx.controllers.LoginController"
+    prefHeight="480.0"
+    prefWidth="420.0"
+    styleClass="login-root">
+
+    <VBox alignment="CENTER" spacing="20"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          styleClass="login-container">
+        <padding><Insets top="40" bottom="40" left="50" right="50"/></padding>
+
+        <!-- Titre -->
+        <Label text="Employee Manager" styleClass="login-title"/>
+        <Label text="Connectez-vous pour continuer" styleClass="login-subtitle"/>
+
+        <!-- Champ username -->
+        <VBox spacing="4">
+            <Label text="Nom d'utilisateur" styleClass="form-label"/>
+            <TextField
+                fx:id="usernameField"
+                promptText="Entrez votre nom d'utilisateur"
+                styleClass="form-field"/>
+        </VBox>
+
+        <!-- Champ mot de passe -->
+        <VBox spacing="4">
+            <Label text="Mot de passe" styleClass="form-label"/>
+            <PasswordField
+                fx:id="passwordField"
+                promptText="Entrez votre mot de passe"
+                styleClass="form-field"/>
+        </VBox>
+
+        <!-- Message d'erreur (caché par défaut) -->
+        <Label
+            fx:id="errorLabel"
+            text=""
+            styleClass="error-label"
+            wrapText="true"
+            maxWidth="320"/>
+
+        <!-- Bouton de connexion -->
+        <Button
+            fx:id="loginButton"
+            text="Se connecter"
+            onAction="#login"
+            maxWidth="Infinity"
+            styleClass="btn-primary"/>
+
+        <!-- Indicateur de chargement (caché par défaut) -->
+        <ProgressIndicator
+            fx:id="loadingIndicator"
+            prefWidth="30"
+            prefHeight="30"/>
+    </VBox>
+
+</AnchorPane>

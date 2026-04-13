@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="sn.iage.isi.employeejavafx.controllers.ProfileController"
+    fitToWidth="true"
+    prefHeight="550.0"
+    prefWidth="700.0">
+
+    <VBox spacing="30" maxWidth="600">
+        <padding><Insets top="30" bottom="30" left="40" right="40"/></padding>
+
+        <Label text="Mon Profil" styleClass="page-title"/>
+
+        <!-- Carte infos utilisateur -->
+        <VBox spacing="12" styleClass="profile-card">
+            <Label text="Informations du compte" styleClass="section-title"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Nom d'utilisateur :" styleClass="form-label" minWidth="160"/>
+                <Label fx:id="usernameLabel" text="—" styleClass="profile-value"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Rôle :" styleClass="form-label" minWidth="160"/>
+                <Label fx:id="roleLabel" text="—" styleClass="profile-value"/>
+            </HBox>
+        </VBox>
+
+        <!-- Carte changement de mot de passe -->
+        <VBox spacing="12" styleClass="profile-card">
+            <Label text="Changer le mot de passe" styleClass="section-title"/>
+
+            <VBox spacing="4">
+                <Label text="Mot de passe actuel *" styleClass="form-label"/>
+                <PasswordField fx:id="currentPasswordField" promptText="Mot de passe actuel" styleClass="form-field" maxWidth="350"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Nouveau mot de passe *" styleClass="form-label"/>
+                <PasswordField fx:id="newPasswordField" promptText="Au moins 6 caractères" styleClass="form-field" maxWidth="350"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Confirmer le mot de passe *" styleClass="form-label"/>
+                <PasswordField fx:id="confirmPasswordField" promptText="Répétez le nouveau mot de passe" styleClass="form-field" maxWidth="350"/>
+            </VBox>
+
+            <!-- Erreur -->
+            <Label fx:id="passwordErrorLabel" text="" styleClass="error-label" wrapText="true"/>
+
+            <Button
+                fx:id="changePasswordButton"
+                text="Modifier le mot de passe"
+                onAction="#handleChangePassword"
+                styleClass="btn-primary"/>
+        </VBox>
+
+    </VBox>
+</ScrollPane>

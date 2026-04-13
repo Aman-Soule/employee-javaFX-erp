@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="sn.iage.isi.employeejavafx.controllers.EditEmployeeController"
+    prefHeight="500.0"
+    prefWidth="460.0">
+
+    <VBox spacing="14"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding><Insets top="25" bottom="25" left="35" right="35"/></padding>
+
+        <Label text="Modifier l'employé" styleClass="modal-title"/>
+
+        <!-- ID (read-only) -->
+        <Label fx:id="idLabel" text="ID : —" styleClass="id-label"/>
+
+        <!-- Nom et Prénom -->
+        <HBox spacing="12">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Nom *" styleClass="form-label"/>
+                <TextField fx:id="nomField" styleClass="form-field"/>
+            </VBox>
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Prénom *" styleClass="form-label"/>
+                <TextField fx:id="prenomField" styleClass="form-field"/>
+            </VBox>
+        </HBox>
+
+        <!-- Email -->
+        <VBox spacing="4">
+            <Label text="Email *" styleClass="form-label"/>
+            <TextField fx:id="emailField" styleClass="form-field"/>
+        </VBox>
+
+        <!-- Téléphone -->
+        <VBox spacing="4">
+            <Label text="Téléphone *" styleClass="form-label"/>
+            <TextField fx:id="telephoneField" styleClass="form-field"/>
+        </VBox>
+
+        <!-- Poste et Salaire -->
+        <HBox spacing="12">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Poste *" styleClass="form-label"/>
+                <TextField fx:id="posteField" styleClass="form-field"/>
+            </VBox>
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Salaire (FCFA) *" styleClass="form-label"/>
+                <TextField fx:id="salaireField" styleClass="form-field"/>
+            </VBox>
+        </HBox>
+
+        <!-- Erreur -->
+        <Label fx:id="formErrorLabel" text="" styleClass="error-label" wrapText="true"/>
+
+        <!-- Boutons -->
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="cancelButton" text="Annuler"    onAction="#handleCancel" styleClass="btn-secondary"/>
+            <Button fx:id="saveButton"   text="Enregistrer" onAction="#handleSave"  styleClass="btn-primary"/>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

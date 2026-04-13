@@ -1,0 +1,32 @@
+# ── Maven ─────────────────────────────────────────────────────────────────
+target/
+*.jar
+*.war
+*.ear
+
+# ── IDE ───────────────────────────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+.vscode/
+
+# ── OS ────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ──────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Config sensible ───────────────────────────────────────────────────────
+# Ne jamais committer les credentials de BDD en clair
+# (penser à externaliser dans un fichier .env ou config.properties)
+# config.properties
+*.env

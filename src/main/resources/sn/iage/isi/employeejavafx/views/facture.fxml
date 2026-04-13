@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1091.0" styleClass="dashboard-root"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sn.iage.isi.employeejavafx.controllers.FactureController">
+
+    <children>
+        <!-- En-tête -->
+        <VBox layoutX="20" layoutY="20" spacing="8" styleClass="dashboard-header">
+            <Label styleClass="page-title" text="Gestion des Factures" />
+            <Label styleClass="hub-subtitle" text="Tableau de bord des factures générées" />
+        </VBox>
+
+        <!-- Barre de recherche -->
+        <HBox layoutX="20" layoutY="80" spacing="10">
+            <TextField fx:id="searchField" promptText="Rechercher une facture..." styleClass="search-field" />
+        </HBox>
+
+        <!-- Tableau des factures -->
+        <TableView fx:id="factureTable" onMouseClicked="#getData"
+                   layoutX="20" layoutY="130" prefHeight="380" prefWidth="1025.0"
+                   styleClass="employee-table">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+                <TableColumn fx:id="colFileName" prefWidth="200" text="Nom du fichier" />
+                <TableColumn fx:id="colDate" prefWidth="120" text="Date génération" />
+                <TableColumn fx:id="colMontant" prefWidth="100" text="Montant" />
+                <TableColumn fx:id="colEmployee" prefWidth="200" text="Employé" />
+            </columns>
+            <placeholder>
+                <Label styleClass="table-placeholder" text="Aucune facture trouvée" />
+            </placeholder>
+        </TableView>
+
+        <!-- Barre d’actions CRUD -->
+        <HBox layoutX="20" layoutY="530" spacing="15" styleClass="action-bar">
+            <Button fx:id="deleteFButton" onAction="#handleDelete" styleClass="btn-danger" text="Supprimer" />
+            <Button onAction="#handleRefresh" styleClass="btn-primary" text="Actualiser" />
+            <Button onAction="#handleOpenPdf" styleClass="btn-success" text="Ouvrir PDF" />
+        </HBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sn.iage.isi.employeejavafx.controllers.UtilisateurController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <children>
+        <!-- En-tête -->
+        <VBox layoutX="20" layoutY="20" spacing="8" styleClass="dashboard-header">
+            <Label styleClass="page-title" text="Gestion des Utilisateurs" />
+            <Label styleClass="hub-subtitle" />
+        </VBox>
+
+        <!-- Barre de recherche -->
+        <HBox layoutX="20" layoutY="80" spacing="10">
+            <TextField fx:id="searchField" promptText="Rechercher un matériel..." styleClass="search-field" />
+        </HBox>
+
+        <!-- Tableau des matériels -->
+        <TableView fx:id="userTable" onMouseClicked="#getData" layoutX="20" layoutY="130" prefHeight="380" prefWidth="1025.0" styleClass="employee-table">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+                <TableColumn fx:id="colUsername" prefWidth="150" text="Nom utilisateur" />
+                <TableColumn fx:id="colRole" prefWidth="150" text="Role" />
+
+            </columns>
+            <placeholder>
+                <Label styleClass="table-placeholder" text="Aucun utilisateur trouvé" />
+            </placeholder>
+        </TableView>
+
+        <!-- Barre d’actions CRUD -->
+        <HBox layoutX="20" layoutY="530" spacing="15" styleClass="action-bar">
+            <Button fx:id="addUButton" onAction="#handleAdd" styleClass="btn-success" text="Ajouter" />
+            <Button fx:id="updateUButton" onAction="#handleUpdate" styleClass="btn-warning" text="Modifier" />
+            <Button fx:id="deleteUButton" onAction="#handleDelete" styleClass="btn-danger" text="Supprimer" />
+            <Button onAction="#handleRefresh" styleClass="btn-primary" text="Actualiser" />
+        </HBox>
+    </children>
+
+</AnchorPane>

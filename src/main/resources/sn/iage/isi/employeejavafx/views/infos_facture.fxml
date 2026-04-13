@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sn.iage.isi.employeejavafx.controllers.InfosFactureController"
+            prefHeight="300.0" prefWidth="400.0">
+
+    <VBox spacing="12"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding><Insets top="20" bottom="20" left="25" right="25"/></padding>
+
+        <Label text="Informations de la facture" styleClass="modal-title"/>
+
+        <GridPane hgap="10" vgap="8">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="100"/>
+                <ColumnConstraints halignment="LEFT" hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <Label text="ID :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="idLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Nom du fichier :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="fileNameLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Date :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="dateLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Montant :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label fx:id="montantLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Employé :" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Label fx:id="employeeLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Fermer" onAction="#handleClose" styleClass="btn-primary"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

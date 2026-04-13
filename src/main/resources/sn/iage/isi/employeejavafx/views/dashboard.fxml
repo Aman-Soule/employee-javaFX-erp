@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="560.0" prefWidth="880.0" styleClass="dashboard-root" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sn.iage.isi.employeejavafx.controllers.DashboardController">
+
+    <!-- ── En-tête ──────────────────────────────────────────────────────── -->
+    <top>
+        <VBox prefHeight="75.0" prefWidth="923.0" spacing="8" styleClass="dashboard-header">
+            <padding><Insets bottom="10" left="20" right="20" top="15" /></padding>
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Label fx:id="welcomeLabel" styleClass="welcome-label" text="Bienvenue !" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="countLabel" styleClass="count-label" text="0 employé(s)" />
+            </HBox>
+            <!-- Barre de recherche -->
+            <TextField fx:id="searchField" maxWidth="400" promptText="Rechercher par nom, prénom ou poste..." styleClass="search-field" />
+        </VBox>
+    </top>
+
+    <!-- ── TableView centrale ───────────────────────────────────────────── -->
+    <center>
+        <TableView fx:id="employeeTable" onMouseClicked="#getData" styleClass="employee-table" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50" text="ID" />
+                <TableColumn fx:id="nomColumn" prefWidth="130" text="Nom" />
+                <TableColumn fx:id="prenomColumn" prefWidth="130" text="Prénom" />
+                <TableColumn fx:id="emailColumn" prefWidth="180" text="Email" />
+                <TableColumn fx:id="telephoneColumn" prefWidth="110" text="Téléphone" />
+                <TableColumn fx:id="posteColumn" prefWidth="130" text="Poste" />
+                <TableColumn fx:id="salaireColumn" prefWidth="130" text="Salaire" />
+            </columns>
+            <placeholder>
+                <Label styleClass="table-placeholder" text="Aucun employé trouvé." />
+            </placeholder>
+        </TableView>
+    </center>
+
+    <!-- ── Barre d'actions ───────────────────────────────────────────────── -->
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="action-bar">
+            <padding><Insets bottom="15" left="20" right="20" top="10" /></padding>
+            <Button fx:id="addButton" onAction="#handleAdd" styleClass="btn-success" text="➕  Ajouter" />
+            <Button fx:id="updateButton" disable="true" onAction="#handleUpdate" styleClass="btn-warning" text="✏️  Modifier" />
+            <Button fx:id="factButton" disable="true" onAction="#handleFacture" styleClass="btn-danger" text=" Facturer" />
+            <Button fx:id="deleteButton" disable="true" onAction="#handleDelete" styleClass="btn-danger" text="🗑️  Supprimer" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="sn.iage.isi.employeejavafx.controllers.AddController"
+    prefHeight="420.0"
+    prefWidth="440.0">
+
+    <VBox spacing="15"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding><Insets top="25" bottom="25" left="35" right="35"/></padding>
+
+        <Label text="Créer un utilisateur" styleClass="modal-title"/>
+
+        <!-- Username -->
+        <VBox spacing="4">
+            <Label text="Nom d'utilisateur *" styleClass="form-label"/>
+            <TextField fx:id="usernameField" promptText="Nom d'utilisateur unique" styleClass="form-field"/>
+        </VBox>
+
+        <!-- Mot de passe -->
+        <VBox spacing="4">
+            <Label text="Mot de passe *" styleClass="form-label"/>
+            <PasswordField fx:id="passwordField" promptText="Au moins 6 caractères" styleClass="form-field"/>
+        </VBox>
+
+        <!-- Confirmer mot de passe -->
+        <VBox spacing="4">
+            <Label text="Confirmer le mot de passe *" styleClass="form-label"/>
+            <PasswordField fx:id="confirmPasswordField" promptText="Répétez le mot de passe" styleClass="form-field"/>
+        </VBox>
+
+        <!-- Rôle -->
+        <VBox spacing="4">
+            <Label text="Rôle" styleClass="form-label"/>
+            <ComboBox fx:id="roleComboBox" maxWidth="Infinity" styleClass="form-field"/>
+        </VBox>
+
+        <!-- Erreur -->
+        <Label fx:id="errorLabel" text="" styleClass="error-label" wrapText="true"/>
+
+        <!-- Boutons -->
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="cancelButton" text="Annuler"     onAction="#handleCancel" styleClass="btn-secondary"/>
+            <Button fx:id="saveButton"   text="Créer l'utilisateur" onAction="#handleSave" styleClass="btn-primary"/>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

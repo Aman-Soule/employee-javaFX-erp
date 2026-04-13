@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1091.0" styleClass="dashboard-root" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sn.iage.isi.employeejavafx.controllers.MaterielController">
+
+    <children>
+        <!-- En-tête -->
+        <VBox layoutX="20" layoutY="20" spacing="8" styleClass="dashboard-header">
+            <Label styleClass="page-title" text="Gestion des Matériels" />
+            <Label styleClass="hub-subtitle" text="Tableau de bord des ressources matérielles" />
+        </VBox>
+
+        <!-- Barre de recherche -->
+        <HBox layoutX="20" layoutY="80" spacing="10">
+            <TextField fx:id="searchField" promptText="Rechercher un matériel..." styleClass="search-field" />
+        </HBox>
+
+        <!-- Tableau des matériels -->
+        <TableView fx:id="materielTable" onMouseClicked="#getData" layoutX="20" layoutY="130" prefHeight="380" prefWidth="1025.0" styleClass="employee-table">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+                <TableColumn fx:id="colNom" prefWidth="150" text="Libellé" />
+                <TableColumn fx:id="colDescription" prefWidth="200" text="Description" />
+                <TableColumn fx:id="colQuantite" prefWidth="80" text="Quantité" />
+                <TableColumn fx:id="colDate" prefWidth="120" text="Date Acquisition" />
+                <TableColumn fx:id="colValeur" prefWidth="100" text="Valeur" />
+                <TableColumn fx:id="colLocalisation" prefWidth="100" text="Localisation" />
+                <TableColumn fx:id="colEtat" prefWidth="100" text="Disponibilité" />
+                <TableColumn fx:id="colCategorie" prefWidth="120" text="Catégorie" />
+            </columns>
+            <placeholder>
+                <Label styleClass="table-placeholder" text="Aucun matériel trouvé" />
+            </placeholder>
+        </TableView>
+
+        <!-- Barre d’actions CRUD -->
+        <HBox layoutX="20" layoutY="530" spacing="15" styleClass="action-bar">
+            <Button fx:id="addMButton" onAction="#handleAdd" styleClass="btn-success" text="Ajouter" />
+            <Button fx:id="updateMButton" onAction="#handleUpdate" styleClass="btn-warning" text="Modifier" />
+            <Button fx:id="deleteMButton" onAction="#handleDelete" styleClass="btn-danger" text="Supprimer" />
+            <Button onAction="#handleRefresh" styleClass="btn-primary" text="Actualiser" />
+        </HBox>
+    </children>
+</AnchorPane>
